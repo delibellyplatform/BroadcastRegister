@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-broadcast-register" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>BroadcastRegister</name>
+
+    <js-module name="BroadcastRegister" src="www/BroadcastRegister.js">
+        <clobbers target="BroadcastRegister" />
+    </js-module>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="BroadcastRegister">
+                <param name="android-package"
+                    value="cordova.plugin.broadcast.register.BroadcastRegister" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/BroadcastRegister.java"
+            target-dir="src/cordova/plugin/broadcast/register/BroadcastRegister" />
+    </platform>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="BroadcastRegister">
+                <param name="ios-package" value="BroadcastRegister" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/BroadcastRegister.m" />
+    </platform>
+</plugin>

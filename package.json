@@ -1,0 +1,17 @@
+{
+  "name": "cordova.plugin.broadcast.register",
+  "version": "1.0.0",
+  "description": "This is register the push notification receiveing broadcast",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "keywords": [
+    "push",
+    "register-broadcast",
+    "Ionic",
+    "broadcast"
+  ],
+  "author": "Arvind W",
+  "license": "ISC"
+}
