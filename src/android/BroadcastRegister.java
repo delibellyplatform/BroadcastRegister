@@ -46,6 +46,12 @@ import android.content.Context;
  */
 public class BroadcastRegister extends CordovaPlugin {
 
+ private static final String ACTION_SHARE_VIA = "openApplication";
+ public final CordovaPlugin plugin = this;
+ public final CordovaInterface cordova = this;
+
+
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         // if (action.equals("coolMethod")) {
@@ -56,6 +62,9 @@ public class BroadcastRegister extends CordovaPlugin {
         if(action.equals("add")) {
             this.add(args, callbackContext);
             return true;
+        }
+        else if(action.equals(ACTION_SHARE_VIA)) {
+            this.openApplication(args, callbackContext);
         }
         return false;
     }
@@ -84,7 +93,7 @@ public class BroadcastRegister extends CordovaPlugin {
         }
     }
 
-        private void openApplication(JSONArray args, CallbackContext callbackContext) {
+    private void openApplication(JSONArray args, CallbackContext callbackContext) {
         if(args != null) {
             try {
                 final String packageName = args.getJSONObject(0).getString("package");
@@ -99,19 +108,19 @@ public class BroadcastRegister extends CordovaPlugin {
                             public void run() {
                             try {
                                 startActivity(intent);
-                            } catch (Exception e) {
-                                callbackContext.error(e.getMessage());
+                            } catch (Exception ex) {
+                                callbackContext.error(ex.getMessage());
                             }
                             }
                         });
                     }catch(Exception ex) {
-                    callbackContext.error(e.getMessage());
+                    callbackContext.error(ex.getMessage());
                     }
                 } 
-                })
+                });
                 return true;
             }catch(Exception ex) {
-               callbackContext.error(e.getMessage()); 
+                callbackContext.error(ex.getMessage());
             }
         }
     }

@@ -16,9 +16,33 @@
                     value="cordova.plugin.broadcast.register.BroadcastRegister" />
             </feature>
         </config-file>
+
+        <!-- module for notification service extentaion start -->
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NotificationServiceExtension">
+                <param name="android-package"
+                    value="cordova.plugin.broadcast.register.NotificationServiceExtension" />
+            </feature>
+        </config-file>
+        <!-- module for notification service extentaion end-->
+
         <config-file parent="/*" target="AndroidManifest.xml" />
         <source-file src="src/android/BroadcastRegister.java"
             target-dir="src/cordova/plugin/broadcast/register/BroadcastRegister" />
+
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="NotificationServiceExtension">
+                <param name="android-package"
+                    value="cordova.plugin.broadcast.register.NotificationServiceExtension" />
+            </feature>
+        </config-file>
+
+        <!-- notification service extentaion meta-data to add Androidmanifeast.xml start-->
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <meta-data android:name="com.onesignal.NotificationServiceExtension"
+                android:value="cordova.plugin.broadcast.register.NotificationServiceExtension" />
+        </config-file>
+        <!-- notification service extentaion meta-data to add Androidmanifeast.xml end-->
     </platform>
 
     <platform name="ios">
