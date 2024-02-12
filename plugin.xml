@@ -30,6 +30,9 @@
         <source-file src="src/android/BroadcastRegister.java"
             target-dir="src/cordova/plugin/broadcast/register/BroadcastRegister" />
 
+        <source-file src="src/android/NotificationServiceExtension.java"
+            target-dir="src/cordova/plugin/broadcast/register/NotificationServiceExtension" />
+
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="NotificationServiceExtension">
                 <param name="android-package"
