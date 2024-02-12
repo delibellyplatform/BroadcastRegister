@@ -35,6 +35,7 @@ public class NotificationServiceExtension implements INotificationServiceExtensi
 
      // this is an example of how to modify the notification by changing the background color to blue
       notification.setExtender(builder -> builder.setColor(0xFF0000FF));
+      notification.complete();
       
    }
 }
